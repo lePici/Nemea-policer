@@ -1,0 +1,8 @@
+branch rule1{
+    filter: SRC_PORT == 123 and DST_PORT == 45769;
+    grouper: SRC_IP;
+    window: type = global, range = 1 seconds;
+    aggregator: cd = COUNT_DISTINCT(DST_IP), sum = SUM(PACKETS);
+    group-filter: sum > 60;
+    selector: SRC_IP, sum, cd;
+}
