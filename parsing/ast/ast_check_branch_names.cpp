@@ -80,7 +80,6 @@ void Check_branch_names::operator() (main_branches const &param) {
 }
 
 void Check_branch_names::operator() (branch_after_fi_s const &param) {
-   std::cout << "branch_after_fi_s" << std::endl;
    check_branches(param.first, param.rest);
 }
 
